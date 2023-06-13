@@ -1,2 +1,6 @@
 # unwritten-boat-735
-Streamline inventory control with this Java-based system. Real-time visibility, CRUD operations, invoices, stock tracking, and customer management. Built with Hibernate for scalability and flexibility. Optimize your inventory management process efficiently.
+![InventoryXpert](https://github.com/nmohammednawaz/unwritten-boat-735/assets/99792738/d3edee5c-c5bc-4856-aed0-1bcb7422f2f5)
+
+<h1>InventoryXpert</h1>
+An Inventory Management Application
+
