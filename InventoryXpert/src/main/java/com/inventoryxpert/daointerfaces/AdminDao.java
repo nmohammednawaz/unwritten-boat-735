@@ -1,4 +1,4 @@
-package com.inventoryxpert.serviceinterfaces;
+package com.inventoryxpert.daointerfaces;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import com.inventoryxpert.exceptions.CannotConnectException;
 import com.inventoryxpert.exceptions.DuplicateDataException;
 import com.inventoryxpert.exceptions.NoRecordFoundException;
 
-public interface AdminService {
+public interface AdminDao {
 	
 	void login(String username, String password) throws CannotConnectException, CannotCompleteTaskException;
 	
@@ -64,8 +64,5 @@ public interface AdminService {
 	void updateStock(Stock stock) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	
 	
-	
-	
-	
-	
+
 }
