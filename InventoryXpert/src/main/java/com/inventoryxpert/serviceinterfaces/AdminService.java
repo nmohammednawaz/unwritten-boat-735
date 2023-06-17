@@ -15,7 +15,7 @@ import com.inventoryxpert.exceptions.NoRecordFoundException;
 
 public interface AdminService {
 	
-	void login(String username, String password) throws CannotConnectException, CannotCompleteTaskException;
+	void adminLogin(String username, String password) throws CannotConnectException, CannotCompleteTaskException;
 	
 //	----------------------------------- Customer Related Services --------------------------------
 	
@@ -37,7 +37,8 @@ public interface AdminService {
 	
 //	----------------------------------- Brand Related Services --------------------------------
 	
-	
+	List<Brand> viewAllBrands() throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
+	Brand findBrandById(int brandId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void addBrand(Brand brand) throws CannotConnectException, CannotCompleteTaskException, DuplicateDataException;
 	void deleteBrand(int brandId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void updateBrand(Brand brand) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
@@ -45,6 +46,8 @@ public interface AdminService {
 	
 //	----------------------------------- Category Related Services --------------------------------
 	
+	List<Category> viewAllCategory() throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
+	Category findCategoryById(int categoryId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void addCategory(Category category) throws CannotConnectException, CannotCompleteTaskException, DuplicateDataException;
 	void deleteCategory(int categoryId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void updateCategory(Category category) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
@@ -52,6 +55,8 @@ public interface AdminService {
 	
 //	----------------------------------- WareHouse Related Services --------------------------------
 	
+	List<WareHouse> viewAllWareHouses() throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
+	WareHouse findWareHouseById(int wareHouseId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void addWareHouse(WareHouse wareHouse) throws CannotConnectException, CannotCompleteTaskException, DuplicateDataException;
 	void deleteWareHouse(int wareHouseId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void updateWareHouse(WareHouse wareHouse) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
@@ -59,6 +64,8 @@ public interface AdminService {
 	
 //	----------------------------------- Stock Related Services --------------------------------
 	
+	List<Stock> viewAllStocks() throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
+	Stock findStockById(int stockId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void addStock(Stock stock) throws CannotConnectException, CannotCompleteTaskException, DuplicateDataException;
 	void deleteStock(int stockId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void updateStock(Stock stock) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;

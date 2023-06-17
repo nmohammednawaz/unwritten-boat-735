@@ -1,10 +1,10 @@
 package com.inventoryxpert.entities;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,11 +17,25 @@ public class Customer {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
+	
+	@Column(nullable = false)
     private boolean isActive;
+	
+	@Column(nullable = false)
     private String firstName;
+	
     private String lastName;
+    
+    @Column(nullable = false, unique = true)
     private String emailId;
+    
+    @Column(nullable = false, unique = true)
+    private int mobileNumber;
+    
+    @Column(nullable = false, unique = true)
     private String userName;
+    
+    @Column(nullable = false)
     private String password;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
@@ -32,23 +46,28 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Order> ordersList;
+    
+    private Cart cart;
 
 	public Customer() {
 		super();
 	}
 
-	public Customer(boolean isActive, String firstName, String lastName, String emailId, String userName,
-			String password, Set<Address> addresses, Set<Transaction> transactions, List<Order> ordersList) {
+	public Customer(boolean isActive, String firstName, String lastName, String emailId, int mobileNumber,
+			String userName, String password, Set<Address> addresses, Set<Transaction> transactions,
+			List<Order> ordersList, Cart cart) {
 		super();
 		this.isActive = isActive;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
+		this.mobileNumber = mobileNumber;
 		this.userName = userName;
 		this.password = password;
 		this.addresses = addresses;
 		this.transactions = transactions;
 		this.ordersList = ordersList;
+		this.cart = cart;
 	}
 
 	public Long getCustomerId() {
@@ -85,6 +104,14 @@ public class Customer {
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+	
+	public int getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(int mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	public String getUserName() {
@@ -127,24 +154,14 @@ public class Customer {
 		this.ordersList = ordersList;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(addresses, customerId, emailId, transactions, userName);
+	public Cart getCart() {
+		return cart;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Customer other = (Customer) obj;
-		return Objects.equals(addresses, other.addresses) && Objects.equals(customerId, other.customerId)
-				&& Objects.equals(emailId, other.emailId) && Objects.equals(transactions, other.transactions)
-				&& Objects.equals(userName, other.userName);
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
-    
+
+	
 	
 }
