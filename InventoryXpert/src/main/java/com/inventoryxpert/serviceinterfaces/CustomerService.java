@@ -19,7 +19,7 @@ public interface CustomerService {
 	void registerCustomer(Customer customer) throws CannotConnectException, CannotCompleteTaskException, DuplicateDataException;
 	void loginCustomer(String username, String password) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	void updateCustomerProfile(Customer customer) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
-	void deleteCustomer(Customer customer) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
+	void deleteCustomer(int customerId) throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	List<Order> viewMyOrders() throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	List<Transaction> viewMyTransactions() throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
 	List<Product> viewAllProducts() throws CannotConnectException, CannotCompleteTaskException, NoRecordFoundException;
